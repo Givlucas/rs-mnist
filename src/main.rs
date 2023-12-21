@@ -62,10 +62,11 @@ impl Network {
 }
 
 fn main() {
-    // let mut test = Network::new(vec![2, 3, 1]);
-    // let input = Array::random((20, 1), Uniform::new(0., 1.));
+    let mut test = Network::new(vec![2, 3, 5]);
+    let input = Array::random((2, 1), Uniform::new(0., 1.));
+    let output = test.feedforward(input.clone());
     // let mut test2 = vec![10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
     // test2.shuffle(&mut thread_rng());
     // println!("{:?}", test2)
-    println!("HELLO WORLD.");
+    println!("input: {input} \n output: {output}");
 }

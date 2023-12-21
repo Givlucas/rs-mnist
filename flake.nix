@@ -21,5 +21,14 @@
       src = self;
       # buildInputs = [ pkgs.rustc pkgs.cargo ];
     };
+
+    devShells.${system}.default = pkgs.mkShell {
+      packages = [
+        pkgs.rustc
+        pkgs.cargo
+        pkgs.rust-analyzer
+        pkgs.lldb_9
+      ];
+    };
   };
 }
