@@ -29,6 +29,12 @@
         pkgs.rust-analyzer
         pkgs.lldb_9
       ];
+    shellHook = ''
+      echo "ENTERING DEV"
+      $SHELL
+      echo "EXITING DEV"
+      exit
+    '';
     };
   };
 }
