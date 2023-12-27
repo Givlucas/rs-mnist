@@ -8,7 +8,7 @@
   outputs = { self, nixpkgs }: 
   let
     system = "x86_64-linux";
-    pkgs = import nixpkgs {
+    pkgs = import nixpkgs{
       inherit system;
     };
   in {
@@ -28,13 +28,15 @@
         pkgs.cargo
         pkgs.rust-analyzer
         pkgs.lldb_9
+        pkgs.gdb
       ];
-    shellHook = ''
-      echo "ENTERING DEV"
-      $SHELL
-      echo "EXITING DEV"
+
+      shellHook = ''
+      echo "dev"
+      RUST_BACKTRACE=1 test="dev" $SHELL
+      echo "exiting dev"
       exit
-    '';
+      '';
     };
   };
 }
